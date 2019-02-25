@@ -46,7 +46,7 @@ QueryResult TextQuery::query(const std::string &sought) const
 {
     static shared_ptr<set<line_no_t>> nodata(new set<line_no_t>);
 
-    auto pos = word_map.find(sought);
+    auto pos = word_map.find(tidy_str(sought));
     if (pos == word_map.end())
         return QueryResult(sought, nodata, file);
     else
